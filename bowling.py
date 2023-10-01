@@ -1,14 +1,12 @@
 class Game:
+    def __init__(self):
+        self._score = 0
 
     def roll(self, pins):
-        pass
+        self._score += pins
 
     def score(self):
-        return -1
-    
-    import unittest
-from bowling import Game
-
+        return self._score
 
 
 
