@@ -8,12 +8,15 @@ class Game(object):
 
     def score(self):
         score = 0
-        i = 0
+        box_in_frame = 0
         for frame in range(10):
-            if self._rolls[i] + self._rolls[i + 1] == 10:  # spare
-                score += 10 + self._rolls[i + 2]
-                i += 2
+            if self._is_spare(box_in_frame):
+                score += 10 + self._rolls[box_in_frame + 2]
+                box_in_frame += 2
             else:
-                score += self._rolls[i] + self._rolls[i + 1]
-                i += 2
+                score += self._rolls[box_in_frame] + self._rolls[box_in_frame + 1]
+                box_in_frame += 2
         return score
+    
+    def _is_spare(self, box_in_frame):
+        return self._rolls[box_in_frame] + self._rolls[box_in_frame + 1] == 10
