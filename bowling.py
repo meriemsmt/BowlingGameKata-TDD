@@ -1,14 +1,19 @@
-class Game:
+class Game(object):
+
     def __init__(self):
-        # Since the next roll matters in a spare, we need a list
         self._rolls = []
 
     def roll(self, pins):
-        # At each roll, we append the pin
         self._rolls.append(pins)
 
     def score(self):
-        return sum(self._rolls)
-
-
-
+        score = 0
+        i = 0
+        for frame in range(10):
+            if self._rolls[i] + self._rolls[i + 1] == 10:  # spare
+                score += 10 + self._rolls[i + 2]
+                i += 2
+            else:
+                score += self._rolls[i] + self._rolls[i + 1]
+                i += 2
+        return score
