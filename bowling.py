@@ -1,12 +1,14 @@
 class Game:
     def __init__(self):
-        self._score = 0
+        # Since the next roll matters in a spare, we need a list
+        self._rolls = []
 
     def roll(self, pins):
-        self._score += pins
+        # At each roll, we append the pin
+        self._rolls.append(pins)
 
     def score(self):
-        return self._score
+        return sum(self._rolls)
 
 
 
