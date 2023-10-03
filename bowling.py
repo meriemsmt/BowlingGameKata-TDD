@@ -12,7 +12,10 @@ class Game(object):
         score = 0
         box_in_frame = 0
         for frame in range(10):
-            if self._is_spare(box_in_frame):
+            if self._rolls[box_in_frame] == 10:  # strike
+                score += 10 + self._rolls[box_in_frame + 1] + self._rolls[box_in_frame + 2]
+                box_in_frame += 1
+            elif self._is_spare(box_in_frame):
                 score += 10 + self._rolls[box_in_frame + 2]
                 box_in_frame += 2
             else:
