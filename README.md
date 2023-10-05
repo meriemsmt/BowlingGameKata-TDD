@@ -1,44 +1,44 @@
-# Bowling Game Kata en utilisant le TDD (Test Driven Development) sur Python
+# Bowling Game Kata using TDD (Test Driven Development) on Python
 
 [![Fr](https://img.shields.io/badge/lang-fr-fr)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README.md)
-[![En](https://img.shields.io/badge/lang-en-en?color=red)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README.en.md)
+[![En](https://img.shields.io/badge/lang-en-en?color=red)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README. en.md)
 
-Le TDD (développement piloté par les tests) est une bonne pratique pour écrire du code de test avant le code de production. 
-Cela comprend la répétition d'un cycle d'écriture d'un code de test qui échoue, le développement d'un code de production qui réussit le test et une refactorisation des deux côtés.
+TDD (Test Driven Development) is a good practice for writing test code before production code.
+This includes repeating a cycle of writing test code that fails, developing production code that passes the test, and refactoring on both sides.
 
-En utilisant Git&GitHub pour surveiller les modifications de code lors des commits, ce tutoriel présente une version Python de l'exemple de jeu de bowling étape par étape.
+By using Git&GitHub to monitor code changes during commits, this tutorial shows, step by step, a Python version of the bowling game kata.
 
-## Problème
-Voici un exemple de tableau de scores d’un joueur de bowling :
+## Issue
+Here is an example of a bowler's scoreboard:
 
-| Case | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th | 10th |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Lancers | 1 &nbsp;&nbsp; 4 | 4 &nbsp;&nbsp; 5 | 6 &nbsp;&nbsp; / | 5 &nbsp;&nbsp; / | ✕ | 0 &nbsp;&nbsp; 1 | 7 &nbsp;&nbsp; / | 6 &nbsp;&nbsp; / | ✕ | 2 &nbsp;&nbsp; / &nbsp;&nbsp; 6 |
+| Frame | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th | 10th |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|: ---:|:---:|:---:|
+| Rolls | 1 &nbsp;&nbsp; 4 | 4 &nbsp;&nbsp; 5 | 6 &nbsp;&nbsp; / | 5 &nbsp;&nbsp; / | ✕ | 0 &nbsp;&nbsp; 1 | 7 &nbsp;&nbsp; / | 6 &nbsp;&nbsp; / | ✕ | 2 &nbsp;&nbsp; / &nbsp;&nbsp; 6 |
 |Score| 5 | 14 | 29 | 49 | 60 | 61 | 77 | 97 | 117 | **133** |
 
-Les règles du jeu sont :
->Le jeu se compose de 10 cases comme indiqué ci-dessus. Dans chaque case, le joueur a deux chances de faire tomber 10 quilles. Le score de la case est le nombre total de quilles renversées, plus les bonus des Strikes et des Spares.
+The rules of the game are:
+>The game consists of 10 frames as shown above. In each frame, the player has two chances to knock down 10 pins. The frame score is the total number of pins knocked down, plus bonuses from Strikes and Spares.
 >
->Un Spare , c'est lorsque le joueur fait tomber les 10 quilles en deux essais. Le bonus pour cette case est le nombre de quilles renversées au prochain lancer. Par exemple, pour la case 3 ci-dessus, le score est de 10 (le nombre total de quilles renversées) plus un bonus de 5 (le nombre de quilles renversées au prochain lancer.)
+>A Spare is when the player knocks down all 10 pins in two tries. The bonus for this frame is the number of pins knocked down on the next roll. For example, for frame 3 above, the score is 10 (the total number of pins knocked down) plus a bonus of 5 (the number of pins knocked down on the next roll.)
 >
->Un strike, c'est lorsque le joueur fait tomber les 10 quilles lors de son premier essai. Le bonus pour cette case est la valeur des deux prochaines boules lancées.
+>A strike is when the player knocks down all 10 pins on his first try. The bonus for this box is the value of the next two balls thrown.
 >
->Pour la dixième case, un joueur qui lance un spare ou un strike est autorisé à lancer les balles supplémentaires pour terminer la case. Cependant, pas plus de trois balles peuvent être lancées dans la dixième case.
+>For the tenth frame, a player who rolls a spare or a strike is allowed to roll an additional ball to complete the square. However, no more than three balls may be thrown into the tenth frame.
 
-Le défi consiste à développer une classe permettant de calculer le score final obtenu dans un jeu de bowling grâce à TDD qui conduit à des tests approfondis et à un code propre. La classe *Game* résultante doit avoir deux méthodes :
+The challenge is to develop a class to calculate the final score obtained in a bowling game using TDD which leads to extensive testing and clean code. The resulting *Game* class should have two methods:
 
-- *Roll :* Utilisé pour renvoyer le nombre de quilles tombées à chaque lancé.
-- *Score :* Utilisé à la fin de la partie pour obtenir le score final.
+- *Roll:* Used to return the number of pins that fell on each roll.
+- *Score:* Used at the end of the game to obtain the final score.
 
 ​## Solution
-Voici le cycle d'un TDD:
+Here is the cycle of a TDD:
 ![alt text](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/TDDWorkflow.png)
 
-1. [![Badge générique](https://img.shields.io/badge/⎍-Test-red.svg)](https://shields.io/)
-    Écrire un test qui implique une des logiques du programme. Cela devrait commencer par la logique la plus simple et passer à des logiques légèrement plus compliquées lors des prochains tours. Puisqu'il n'y a pas de code de production pour la fonctionnalité à ce moment-là, elle devrait **échouer**.
-2. [![Badge générique](https://img.shields.io/badge/⎍-Code-brightgreen.svg)](https://shields.io/)
-    Pour écrire la quantité minimale de code de production juste pour **réussir** le test unitaire défaillant, mais pas plus loin.
-3. [![Badge générique](https://img.shields.io/badge/⎍-Refactor-blue.svg)](https://shields.io/)
-    Restructurer à la fois le code de test et le code de production en codes propres.
+1. [![Generic badge](https://img.shields.io/badge/⎍-Test-red.svg)](https://shields.io/)
+     Write a test that involves some of the program's logic. This should start with the simplest logic and move on to slightly more complicated logics in later rounds. Since there is no production code for the feature at this time, it should **fail**.
+2. [![Generic badge](https://img.shields.io/badge/⎍-Code-brightgreen.svg)](https://shields.io/)
+     To write the minimum amount of production code just to **pass** the failing unit test, but no further.
+3. [![Generic badge](https://img.shields.io/badge/⎍-Refactor-blue.svg)](https://shields.io/)
+     Cleaning both test code and production code into clean codes.
 
-La solution se trouve sur les deux fichiers *test_bowling.py* et *bowling.py*, où le premier contient le code de test et le second le code de production. Pour voir le développement, veuillez accéder à la section **commits**, à partir du commit "1st Test - Scoring Zeros" jusqu'à "Final Refactoring".
+The solution is found on the two files *test_bowling.py* and *bowling.py*, where the first contains the test code and the second the production code. To see the development, please go to the **commits** section, from commit "1st Test - Scoring Zeros" to "Final Refactoring".
