@@ -1,7 +1,7 @@
 # Bowling Game Kata en utilisant le TDD (Test Driven Development) sur Python
 
 [![Fr](https://img.shields.io/badge/lang-fr-fr)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README.md)
-[![En](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README.en.md)
+[![En](https://img.shields.io/badge/lang-en-en?color=red)](https://github.com/meriemsmt/BowlingGameKata-TDD/blob/main/README.en.md)
 
 Le TDD (développement piloté par les tests) est une bonne pratique pour écrire du code de test avant le code de production. 
 Cela comprend la répétition d'un cycle d'écriture d'un code de test qui échoue, le développement d'un code de production qui réussit le test et une refactorisation des deux côtés.
