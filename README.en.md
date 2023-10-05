@@ -12,7 +12,7 @@ By using Git&GitHub to monitor code changes during commits, this tutorial shows,
 Here is an example of a bowler's scoreboard:
 
 | Frame | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th | 10th |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|: ---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Rolls | 1 &nbsp;&nbsp; 4 | 4 &nbsp;&nbsp; 5 | 6 &nbsp;&nbsp; / | 5 &nbsp;&nbsp; / | ✕ | 0 &nbsp;&nbsp; 1 | 7 &nbsp;&nbsp; / | 6 &nbsp;&nbsp; / | ✕ | 2 &nbsp;&nbsp; / &nbsp;&nbsp; 6 |
 |Score| 5 | 14 | 29 | 49 | 60 | 61 | 77 | 97 | 117 | **133** |
 
